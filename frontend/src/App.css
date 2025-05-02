@@ -1,0 +1,235 @@
+/* RESET + BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #000;      /* <-- make all text black */
+  line-height: 1.6;
+}
+
+
+/* 2. HEADER */
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+header button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  background: white;
+  color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+header button:hover {
+  background: #e8f5e9;
+}
+
+/* 3. MAIN CONTENT – FULL WIDTH */
+main {
+  width: 100%;
+  padding: 2rem;
+}
+
+/* 4. PRODUCT GRID – 3 COLUMNS ON DESKTOP */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.product {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.product h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.product p {
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.product button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.product button:hover {
+  background: #45a049;
+}
+
+/* 5. CART SIDEBAR */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -360px;
+  width: 360px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+.cart-sidebar.show {
+  right: 0;
+}
+.close-cart {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* Cart items */
+.cart-items {
+  display: flex;
+  flex-direction: column;  /* stack each .cart-item vertically */
+  gap: 1rem;
+}
+
+.cart-item {
+  display: flex;           /* side‑by‑side image + details */
+  align-items: center;     /* vertically center them */
+}
+
+/* ensure quantity/buttons don’t wrap awkwardly */
+.cart-item p {
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cart-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 0.75rem;
+}
+.cart-item h3 {
+  flex: 1;
+  font-size: 1rem;
+  margin: 0;
+}
+.cart-item button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cart-item button:hover {
+  background: #d32f2f;
+}
+
+.checkout {
+  width: 100%;
+  padding: 0.75rem;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.checkout:hover {
+  background: #0b7dda;
+}
+
+/* 6. ORDER HISTORY TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: white;
+}
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 0.9rem;
+}
+th {
+  background: #f2f2f2;
+}
+td button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+td button:hover {
+  background: #d32f2f;
+}
+
+/* 7. RESPONSIVE BREAKPOINTS */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cart-sidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header button {
+    margin: 0.5rem 0 0;
+  }
+}
