@@ -66,7 +66,7 @@ function Shop() {
   return (
     <div>
       <header>
-        <h1>E-Commerce Site</h1>
+        <h1>Cartfinity</h1>
         <button onClick={() => setShowCart(!showCart)}>Cart ({cart.length})</button>
         <button onClick={() => navigate('/orders')}>Order History</button>
       </header>
@@ -76,7 +76,7 @@ function Shop() {
         <div className="product-grid">
           {products.map(product => (
             <div key={product.id} className="product">
-              <img src={product.image} alt={product.name} className="product-image" />
+              <img src={`http://localhost:8080/images/${product.image}`} alt={product.name} className="product-image" />
               <h3>{product.name}</h3>
               <p>{product.description}</p>
               <p>Price: ₹{product.price}</p>
@@ -94,7 +94,7 @@ function Shop() {
             <div className="cart-items">
               {cart.map(item => (
                 <div key={item.product.id} className="cart-item">
-                  <img src={item.product.image} alt={item.product.name} className="cart-image" />
+                  <img src={`http://localhost:8080/images/${item.product.image}`} alt={item.product.name} className="product-image" />
                   <h3>{item.product.name}</h3>
                   <p>Price: ₹{item.product.price}</p>
                   <p>Quantity: 

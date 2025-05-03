@@ -2,3 +2,4 @@
 /ecommerce
 /backend/src/main/resources/application.properties
 .DS_Store
+/backend/src/main/resources/static/images
