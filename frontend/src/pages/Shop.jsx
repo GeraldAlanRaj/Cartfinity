@@ -26,6 +26,7 @@ function Shop() {
     } else {
       setCart([...cart, { product, quantity: 1 }]);
     }
+    alert(`${product.name} added to cart!`);
   };
 
   const removeFromCart = (id) => {
